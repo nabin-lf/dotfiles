@@ -8,7 +8,7 @@ echo "=== Dotfiles Installer ==="
 echo ""
 
 # SSH Key
-echo "[1/6] Setting up SSH key..."
+echo "[1/7] Setting up SSH key..."
 if [ ! -f ~/.ssh/id_rsa ]; then
     ssh-keygen -t rsa -b 4096 -C "nabin-lf" -f ~/.ssh/id_rsa -N ""
     eval "$(ssh-agent -s)"
@@ -30,31 +30,41 @@ else
 fi
 
 # Alacritty
-echo "[2/6] Installing Alacritty configs..."
+echo "[2/7] Installing Alacritty configs..."
 mkdir -p ~/.config/alacritty
 cp "$DOTFILES_DIR/alacritty/"*.toml ~/.config/alacritty/
 
 # Ghostty
-echo "[3/6] Installing Ghostty configs..."
+echo "[3/7] Installing Ghostty configs..."
 mkdir -p ~/.config/ghostty
-cp "$DOTFILES_DIR/ghostty/config.ghostty" ~/.config/ghostty/
+cp "$DOTFILES_DIR/ghostty/config" ~/.config/ghostty/
 
 # Tmux
-echo "[4/6] Installing Tmux configs..."
+echo "[4/7] Installing Tmux configs..."
 cp "$DOTFILES_DIR/tmux/.tmux.conf" ~/
 
 # Zsh
-echo "[5/6] Installing Zsh configs..."
+echo "[5/7] Installing Zsh configs..."
 cp "$DOTFILES_DIR/zsh/.zshrc" ~/
 
 # Neovim (LazyVim)
-echo "[6/6] Installing Neovim (LazyVim) configs..."
+echo "[6/7] Installing Neovim (LazyVim) configs..."
 mkdir -p ~/.config/nvim
 cp "$DOTFILES_DIR/nvim/init.lua" ~/.config/nvim/
 cp "$DOTFILES_DIR/nvim/lazyvim.json" ~/.config/nvim/
 cp "$DOTFILES_DIR/nvim/lazy-lock.json" ~/.config/nvim/
 cp -r "$DOTFILES_DIR/nvim/lua" ~/.config/nvim/
 cp -r "$DOTFILES_DIR/nvim/plugin" ~/.config/nvim/ 2>/dev/null || true
+
+# Clipboard Manager (GPaste)
+echo "[7/7] Installing clipboard manager (GPaste)..."
+sudo apt update -qq
+sudo apt install -y gpaste gnome-shell-extension-gpaste 2>/dev/null || true
+gnome-extensions enable gpaste@gnome-shell-extensions.gnome.org 2>/dev/null || true
+gsettings set org.gnome.GPaste max-history-size 50
+gsettings set org.gnome.GPaste track-changes true
+gsettings set org.gnome.GPaste trim-whitespace true
+dconf write /org/gnome/GPaste/show-ui "'<Super>v'"
 
 # GNOME keybindings
 echo ""
@@ -77,4 +87,5 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
 echo ""
 echo "=== Done ==="
+echo "GPaste: Super+V to open clipboard history"
 echo "Restart your terminal or run: source ~/.zshrc"
