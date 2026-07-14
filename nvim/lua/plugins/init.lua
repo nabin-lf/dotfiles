@@ -18,6 +18,7 @@ return {
         "html", "css", "javascript", "typescript",
         "json", "yaml", "bash", "markdown",
         "tsx", "jsx",
+        "go", "gomod", "gosum", "gowork",
       },
     },
   },
