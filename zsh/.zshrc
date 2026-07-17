@@ -123,12 +123,7 @@ alias cat='bat'
 export FZF_DEFAULT_OPTS="--bind='j:down,k:up,h:toggle-preview,l:toggle+down'"
 
 # fzf shell integration (Ctrl+R = history, Ctrl+T = files, Alt+C = cd)
-source <(fzf --zsh 2>/dev/null) 2>/dev/null || {
-    # Fallback if fzf --zsh not available
-    bindkey '^R' fzf-history-widget
-    bindkey '^T' fzf-file-widget
-    bindkey '^[c' fzf-cd-widget
-}
+source /usr/share/doc/fzf/examples/key-bindings.zsh 2>/dev/null
 
 # nvim fuzzy finder
 alias v='fd --type f --hidden --exclude .git --exclude node_modules | fzf-tmux -p --reverse | xargs nvim'
