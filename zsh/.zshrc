@@ -176,3 +176,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # opencode
 export PATH=/home/leapfrog/.opencode/bin:$PATH
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
