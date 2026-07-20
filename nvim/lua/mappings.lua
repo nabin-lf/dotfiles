@@ -16,9 +16,9 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find Buffers" })
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle File Explorer" })
 map("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Tree" })
 
--- Splits
-map("n", "<leader>sh", "<cmd>split<cr>", { desc = "Horizontal Split" })
-map("n", "<leader>sv", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
+-- Splits (equal width/height)
+map("n", "<leader>sh", "<cmd>split<cr><C-w>=", { desc = "Horizontal Split" })
+map("n", "<leader>sv", "<cmd>vsplit<cr><C-w>=", { desc = "Vertical Split" })
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left split" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to lower split" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to upper split" })
