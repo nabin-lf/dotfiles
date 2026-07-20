@@ -53,7 +53,10 @@ map("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "Git Commits" 
 -- Terminal
 map("n", "<leader>tt", "<cmd>ToggleTerm direction=float<cr>", { desc = "Float Terminal" })
 map("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Horizontal Terminal" })
-map("n", "<leader>tv", "<cmd>ToggleTerm direction=vertical size=50<cr>", { desc = "Vertical Terminal" })
+map("n", "<leader>tv", function()
+  local count = math.floor(vim.o.columns * 0.4)
+  vim.cmd("ToggleTerm direction=vertical size=" .. count)
+end, { desc = "Vertical Terminal (40% width)" })
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Hop
