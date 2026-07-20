@@ -1,14 +1,3 @@
-local border = {
-  { "╭", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╮", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "╯", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╰", "FloatBorder" },
-  { "│", "FloatBorder" },
-}
-
 vim.diagnostic.config {
   virtual_text = {
     source = "always",
@@ -17,7 +6,7 @@ vim.diagnostic.config {
   },
   float = {
     source = "always",
-    border = border,
+    border = "rounded",
     max_width = 120,
     wrap = true,
   },
@@ -27,54 +16,34 @@ vim.diagnostic.config {
   severity_sort = true,
 }
 
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or border
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
+-- Disable native LSP hover/signature handlers (Lspsaga handles these)
+-- This prevents the double-popup issue
+vim.lsp.handlers["textDocument/hover"] = function() end
+vim.lsp.handlers["textDocument/signatureHelp"] = function() end
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border, max_width = 80 })
+-- Setup LSP servers using new vim.lsp.config API
+local servers = {
+  gopls = {},
+  ts_ls = {},
+  html = {},
+  cssls = {},
+  clangd = {},
+  jsonls = {},
+  yamlls = {},
+  biome = {},
+  prismals = {},
+}
 
--- Setup LSP servers
-local lspconfig = require "lspconfig"
-local configs = require "lspconfig.configs"
-local util = require "lspconfig.util"
-
--- Helper to setup server with default options
-local function setup_server(server, opts)
-  opts = opts or {}
-  opts.on_attach = opts.on_attach or function(client, bufnr)
-    local map = vim.keymap.set
-    local lsp_opts = { noremap = true, silent = true, buffer = bufnr }
-    map("n", "K", ":Lspsaga hover_doc<CR>", lsp_opts)
-    map("n", "gdf", ":Lspsaga peek_definition<CR>", lsp_opts)
-    map("n", "gd", vim.lsp.buf.definition, lsp_opts)
-    map("n", "gf", ":Lspsaga finder<CR>", lsp_opts)
-    map("n", "<leader>ca", ":Lspsaga code_action<CR>", lsp_opts)
-    map("n", "<leader>rn", ":Lspsaga rename<CR>", lsp_opts)
-    map("n", "<leader>d", ":Lspsaga show_line_diagnostics<CR>", lsp_opts)
-    map("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", lsp_opts)
-    map("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", lsp_opts)
-    map("n", "<leader>lf", function()
-      vim.diagnostic.open_float { border = "rounded" }
-    end, lsp_opts)
+for server, opts in pairs(servers) do
+  opts.on_attach = function(client, bufnr)
+    -- Lspsaga handles all UI - clear native LSP mappings
+    -- Don't set K, gd, etc here - Lspsaga does it via its own setup
   end
-  opts.capabilities = opts.capabilities or vim.lsp.protocol.make_client_capabilities()
-  lspconfig[server].setup(opts)
+  vim.lsp.config(server, opts)
+  vim.lsp.enable(server)
 end
 
-setup_server "gopls"
-setup_server "ts_ls"
-setup_server "html"
-setup_server "cssls"
-setup_server "clangd"
-setup_server "jsonls"
-setup_server "yamlls"
-setup_server "biome"
-setup_server "prismals"
-
--- Buf LSP for proto files
+-- Buf LSP for proto files (manual start, no lspconfig needed)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "proto",
   callback = function(args)
