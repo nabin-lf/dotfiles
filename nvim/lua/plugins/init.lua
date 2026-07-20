@@ -18,21 +18,19 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     config = function()
-      local ts_config = require "nvim-treesitter.configs"
-      -- New API: if .setup exists use it, otherwise configure manually
-      if ts_config and ts_config.setup then
-        ts_config.setup(overrides.treesitter)
-      else
-        -- Fallback: configure treesitter features individually
-        local ts = overrides.treesitter
-        if ts.ensure_installed then
-          -- Ensure parsers are installed
-          local install = require("nvim-treesitter.install")
-          for _, lang in ipairs(ts.ensure_installed) do
-            pcall(function() install.ensure_installed(lang) end)
+      -- New nvim-treesitter uses vim.treesitter API directly
+      local ts = overrides.treesitter
+      -- Install parsers
+      if ts.ensure_installed then
+        local installed = require("nvim-treesitter.install").installed_parsers or {}
+        for _, lang in ipairs(ts.ensure_installed) do
+          if not vim.tbl_contains(installed, lang) then
+            pcall(function() require("nvim-treesitter.install").install({ lang }) end)
           end
         end
-        -- Enable highlights
+      end
+      -- Enable features
+      if ts.highlight and ts.highlight.enable then
         vim.treesitter.start()
       end
     end,
