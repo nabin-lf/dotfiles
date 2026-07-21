@@ -1,6 +1,14 @@
-#!/bin/bash
+# Neovim
+echo "[7/8] Installing Neovim configs..."
+copy_config_dir nvim#!/bin/bash
 
 set -e
+copy_config_dir() {
+local name="$1"
+[ -d "$DOTFILES_DIR/$name" ] || return
+mkdir -p "$HOME/.config/$name"
+cp -a "$DOTFILES_DIR/$name/." "$HOME/.config/$name/"
+}
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 
@@ -8,7 +16,7 @@ echo "=== Dotfiles Installer ==="
 echo ""
 
 # SSH Key
-echo "[1/7] Setting up SSH key..."
+echo "[1/8] Setting up SSH key..."
 if [ ! -f ~/.ssh/id_rsa ]; then
     ssh-keygen -t rsa -b 4096 -C "nabin-lf" -f ~/.ssh/id_rsa -N ""
     eval "$(ssh-agent -s)"
@@ -30,34 +38,32 @@ else
 fi
 
 # Alacritty
-echo "[2/7] Installing Alacritty configs..."
-mkdir -p ~/.config/alacritty
-cp "$DOTFILES_DIR/alacritty/"*.toml ~/.config/alacritty/
+echo "[2/8] Installing Alacritty configs..."
+copy_config_dir alacritty
 
 # Ghostty
-echo "[3/7] Installing Ghostty configs..."
-mkdir -p ~/.config/ghostty
-cp "$DOTFILES_DIR/ghostty/config" ~/.config/ghostty/
+echo "[3/8] Installing Ghostty configs..."
+copy_config_dir ghostty
+
+echo "[4/8] Installing terminal tool configs..."
+for config in kitty wezterm starship btop cava fastfetch htop lazydocker lazygit pgcli yazi; do
+    copy_config_dir "$config"
+done
 
 # Tmux
-echo "[4/7] Installing Tmux configs..."
+echo "[5/8] Installing Tmux configs..."
 cp "$DOTFILES_DIR/tmux/.tmux.conf" ~/
 
 # Zsh
-echo "[5/7] Installing Zsh configs..."
+echo "[6/8] Installing Zsh configs..."
 cp "$DOTFILES_DIR/zsh/.zshrc" ~/
 
-# Neovim (LazyVim)
-echo "[6/7] Installing Neovim (LazyVim) configs..."
-mkdir -p ~/.config/nvim
-cp "$DOTFILES_DIR/nvim/init.lua" ~/.config/nvim/
-cp "$DOTFILES_DIR/nvim/lazyvim.json" ~/.config/nvim/
-cp "$DOTFILES_DIR/nvim/lazy-lock.json" ~/.config/nvim/
-cp -r "$DOTFILES_DIR/nvim/lua" ~/.config/nvim/
-cp -r "$DOTFILES_DIR/nvim/plugin" ~/.config/nvim/ 2>/dev/null || true
+# Neovim
+echo "[7/8] Installing Neovim configs..."
+copy_config_dir nvim
 
 # Clipboard Manager (GPaste)
-echo "[7/7] Installing clipboard manager (GPaste)..."
+echo "[8/8] Installing clipboard manager (GPaste)..."
 sudo apt update -qq
 sudo apt install -y gpaste gnome-shell-extension-gpaste 2>/dev/null || true
 gnome-extensions enable gpaste@gnome-shell-extensions.gnome.org 2>/dev/null || true

@@ -16,9 +16,13 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find Buffers" })
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle File Explorer" })
 map("n", "<C-n>", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle Tree" })
 
--- Splits (equal width/height)
-map("n", "<leader>sh", "<cmd>split<cr><C-w>=", { desc = "Horizontal Split" })
-map("n", "<leader>sv", "<cmd>vsplit<cr><C-w>=", { desc = "Vertical Split" })
+-- Splits
+map("n", "<leader>v", function()
+  require("nvchad.term").new { pos = "vsp", size = 0.3 }
+end, { desc = "Vertical Terminal Split" })
+map("n", "<leader>h", function()
+  require("nvchad.term").new { pos = "sp", size = 0.3 }
+end, { desc = "Horizontal Terminal Split" })
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left split" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to lower split" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to upper split" })
@@ -70,6 +74,15 @@ map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 map("n", "<leader>fq", "<cmd>TodoQuickFix<cr>", { desc = "Todo Quickfix" })
 
 -- Diagnostics
+map("n", "<leader>d", function()
+  vim.diagnostic.open_float(nil, { scope = "cursor" })
+end, { desc = "Line diagnostics" })
+map("n", "<leader>lf", function()
+  vim.diagnostic.open_float(nil, {
+    scope = "cursor",
+    severity = vim.diagnostic.severity.ERROR,
+  })
+end, { desc = "Line errors only" })
 map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
 map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics" })
 

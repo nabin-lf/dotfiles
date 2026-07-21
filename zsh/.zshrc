@@ -74,11 +74,8 @@ alias build="bun run build"
 alias install="bun i"
 
 # Postgres
-# alias pgc='pgcli "postgresql://postgres:password@localhost:5435/postgres"'
-# alias pg='pgcli "postgres://postgres:password@localhost:5435/solar"'
+alias pgc='pgcli "postgresql://postgres:postgres@localhost:5432/postgres"'
 
-# SSH
-# alias humanfitServer="ssh human@103.94.159.236 -p 2035"
 
 # Bun
 export BUN_INSTALL="$HOME/.bun"
@@ -163,7 +160,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Utility aliases
 alias vim='nvim'
 alias c='clear'
-
+alias http='xh'
 # starship
 eval "$(starship init zsh)"
 # zoxide
@@ -172,3 +169,8 @@ eval "$(zoxide init --cmd cd zsh)"
 # opencode
 export PATH=/home/leapfrog/.opencode/bin:$PATH
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/leapfrog/.local/bin:$PATH"
+export PATH="/home/leapfrog/.local/bin:$PATH"

@@ -1,104 +1,137 @@
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /Users/nabwinsaud/Library/Application Support/com.mitchellh.ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
-# Run `ghostty +show-config --default --docs` to view a list of
-# all available config options and their default values.
-#
-# Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
-#
-# Ghostty can reload the configuration while running by using the menu
-# options or the bound key (default: Command + Shift + comma on macOS and
-# Control + Shift + comma on other platforms). Not all config options can be
-# reloaded while running; some only apply to new windows and others may require
-# a full restart to take effect.
+# pkill -SIGUSR2 ghostty
+theme = "Catppuccin Mocha"
+#config-file = ~/.config/ghostty/wallust.conf
+#theme = Aura
+#theme = Aardvark Blue
+#theme = GruvboxDarkHard
+#theme = 12-bit Rainbow 
+#theme = Adwaita dark 
+#theme = Adventure Time
+#theme = Argonaut 
+#theme = Ayu 
+#theme = Borland 
+#theme = Breeze
+#theme = Bright Lights
+#theme = Builtin Dark
+#theme = Carbon Fox 
+#theme = Catppuccin Frappe
+#theme = Catppuccin Latte
+#theme = Catppuccin Macchiato
+#theme = Catppuccin Mocha
+#theme = cga 
+#theme = Challenger Deep 
+#theme = Citruszest
+#theme = Colbalt Next Dark 
+#theme = Cobalt2
+#theme = Cyberdyne 
+#theme = Cyberpunk
+#theme = Dark Modern
+#theme = Dark Pastel 
+#theme = Dark+
+#theme = Darkmatrix 
+#theme = Darkside
+#theme = Deep
+#theme = Detuned 
+#theme = Dimidium 
+#theme = Doom One 
+#theme = Doom Peacock 
+#theme = Dot Gov 
+#theme = Dracula
+#theme = Dracula+
+#theme = Duckbones
+#theme = Duskfox 
+#theme = Electron Highlighter 
+#theme = Elementary
+#theme = Embark 
+#theme = ENCOM 
+#theme = Everblush 
+#theme = Everforest Dark hard 
+#theme = Firefly Traditional 
+#theme = Firefox Dev 
+#theme = Flatland 
+#theme = Framer 
+#theme = Galizur
+#theme = Github Dark 
+#theme = Github Dark Default
+#theme = Github Dark High Contrast 
+#theme = Grape 
+#theme = Grubox Dark 
+#theme = Grubox Material  
+adjust-cell-height = 10%
+window-theme = dark
+window-height = 32
+window-width = 110
+background-opacity = 0.85
+background-blur-radius = 60
+selection-background = #2d3f76
+selection-foreground = #c8d3f5
+cursor-style = bar
+mouse-hide-while-typing = true
 
-# Config syntax crash course
-# ==========================
-# # The config file consists of simple key-value pairs,
-# # separated by equals signs.
-# font-family = Iosevka
-# window-padding-x = 2
-#
-# # Spacing around the equals sign does not matter.
-# # All of these are identical:
-# key=value
-# key= value
-# key =value
-# key = value
-#
-# # Any line beginning with a # is a comment. It's not possible to put
-# # a comment after a config option, since it would be interpreted as a
-# # part of the value. For example, this will have a value of "#123abc":
-# background = #123abc
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
-#
-#
-# Ghostty Terminal Configuration - Tokyo Night Theme
+# keybindings
+keybind = alt+s>r=reload_config
+keybind = alt+s>x=close_surface
 
-# Font configuration
-font-family = "JetBrainsMono Nerd Font"
-font-size = 13
+keybind = alt+s>n=new_window
 
-# Window configuration
-window-decoration = true
-window-padding-x = 10
-window-padding-y = 10
+# tabs
+keybind = alt+s>c=new_tab
+keybind = alt+s>shift+l=next_tab
+keybind = alt+s>shift+h=previous_tab
+keybind = alt+s>comma=move_tab:-1
+keybind = alt+s>period=move_tab:1
 
-# Transparency
-background-opacity = 1
-background-blur = false
+# quick tab switch
+keybind = alt+s>1=goto_tab:1
+keybind = alt+s>2=goto_tab:2
+keybind = alt+s>3=goto_tab:3
+keybind = alt+s>4=goto_tab:4
+keybind = alt+s>5=goto_tab:5
+keybind = alt+s>6=goto_tab:6
+keybind = alt+s>7=goto_tab:7
+keybind = alt+s>8=goto_tab:8
+keybind = alt+s>9=goto_tab:9
 
-# Tokyo Night Theme Colors
-background = 1a1b26
-foreground = c0caf5
+# split
+keybind = alt+s>\=new_split:right
+keybind = alt+s>-=new_split:down
 
-# Terminal colors (0-15)
-palette = 0=#15161e
-palette = 1=#f7768e
-palette = 2=#9ece6a
-palette = 3=#e0af68
-palette = 4=#7aa2f7
-palette = 5=#bb9af7
-palette = 6=#7dcfff
-palette = 7=#c0caf5
-palette = 8=#414868
-palette = 9=#f7768e
-palette = 10=#9ece6a
-palette = 11=#e0af68
-palette = 12=#7aa2f7
-palette = 13=#bb9af7
-palette = 14=#7dcfff
-palette = 15=#c0caf5
+keybind = alt+s>j=goto_split:bottom
+keybind = alt+s>k=goto_split:top
+keybind = alt+s>h=goto_split:left
+keybind = alt+s>l=goto_split:right
 
-# Cursor
-cursor-color = c0caf5
+keybind = alt+s>z=toggle_split_zoom
 
-# Selection
-selection-background = 33467c
-selection-foreground = c0caf5
+keybind = alt+s>e=equalize_splits
 
-# Shell integration
-shell-integration = zsh
+# other
+#copy-on-select = clipboard
 
-# Key bindings
-# it affect the vim while redo 
-# keybind = ctrl+r=reload_config
+font-size = 12
+#font-family = JetBrainsMono Nerd Font Mono
+#font-family-bold = JetBrainsMono NFM Bold
+#font-family-bold-italic = JetBrainsMono NFM Bold Italic
+#font-family-italic = JetBrainsMono NFM Italic
 
-# Miscellaneous
-copy-on-select = true
+#font-family = BerkeleyMono Nerd Font
+#font-family = Iosevka Nerd Font
+# font-family = SFMono Nerd Font
+
+# Font families
+font-family = "Iosevkeley Mono"
+font-family-bold = "Iosevkeley Mono"
+font-family-italic = "Iosevkeley Mono"
+font-family-bold-italic = "Iosevkeley Mono"
+font-family = "Symbols Nerd Font Mono"
+
+
+title = "GhosTTY"
+
+wait-after-command = false
+shell-integration = detect
+window-save-state = always
+gtk-single-instance = true
+unfocused-split-opacity = 0.5
+quick-terminal-position = center
+shell-integration-features = cursor,sudo

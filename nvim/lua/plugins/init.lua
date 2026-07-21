@@ -29,9 +29,9 @@ return {
           end
         end
       end
-      -- Enable features
+      -- Enable features (only for current buffer if it has a parser)
       if ts.highlight and ts.highlight.enable then
-        vim.treesitter.start()
+        pcall(function() vim.treesitter.start() end)
       end
     end,
   },
