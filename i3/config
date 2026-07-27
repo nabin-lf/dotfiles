@@ -13,9 +13,9 @@ gaps outer 4
 smart_gaps on
 smart_borders on
 default_border pixel 2
-client.focused          #458588 #458588 #fbf1c7 #458588 #458588
-client.focused_inactive #3c3836 #3c3836 #928374 #3c3836 #3c3836
-client.unfocused        #1d2021 #1d2021 #928374 #1d2021 #1d2021
+client.focused          #cba6f7 #cba6f7 #1e1e2e #cba6f7 #cba6f7
+client.focused_inactive #313244 #313244 #a6adc8 #313244 #313244
+client.unfocused        #181825 #181825 #6c7086 #181825 #181825
 
 # Daily apps (Alt based, like an AeroSpace setup)
 bindsym Mod1+i exec --no-startup-id env WINIT_X11_SCALE_FACTOR=1 alacritty
@@ -117,13 +117,13 @@ bar {
     tray_output primary
     font pango:JetBrainsMono Nerd Font 10
     colors {
-        background #1d2021
-        statusline #d5c4a1
-        separator  #504945
-        focused_workspace  #458588 #458588 #fbf1c7
-        active_workspace   #3c3836 #3c3836 #d5c4a1
-        inactive_workspace #1d2021 #1d2021 #928374
-        urgent_workspace   #cc241d #cc241d #fbf1c7
+        background #181825
+        statusline #cdd6f4
+        separator  #45475a
+        focused_workspace  #cba6f7 #cba6f7 #1e1e2e
+        active_workspace   #313244 #313244 #cdd6f4
+        inactive_workspace #181825 #181825 #6c7086
+        urgent_workspace   #f38ba8 #f38ba8 #1e1e2e
     }
 }
 

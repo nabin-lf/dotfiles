@@ -30,8 +30,7 @@ This will:
 1. Set up SSH key (if not already configured)
 2. Copy Alacritty, i3, Ghostty, tmux, zsh, and Neovim configs to the correct locations
 3. Enable tap-to-click and the configured touchpad scrolling direction
-3. Install GPaste clipboard manager
-4. Set up GNOME keybindings for app launchers
+3. Install the i3 touchpad preference and native i3 startup services
 
 ## Manual install (without script)
 
@@ -135,7 +134,7 @@ For Bluetooth, press `Super+Shift+b` for Blueman. From a terminal, use `bluetoot
 
 ## Fonts
 
-This setup uses **JetBrainsMono Nerd Font** (v3.4.0). Install it from [Nerd Fonts](https://www.nerdfonts.com/font-downloads) if missing:
+This setup uses **JetBrainsMono Nerd Font** (v3.4.0) and a Catppuccin Mocha purple i3 palette. Install the font from [Nerd Fonts](https://www.nerdfonts.com/font-downloads) if missing:
 
 ```bash
 mkdir -p ~/.local/share/fonts

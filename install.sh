@@ -14,7 +14,7 @@ echo "=== Dotfiles Installer ==="
 echo ""
 
 # SSH Key
-echo "[1/10] Setting up SSH key..."
+echo "[1/9] Setting up SSH key..."
 if [ ! -f ~/.ssh/id_rsa ]; then
     ssh-keygen -t rsa -b 4096 -C "nabin-lf" -f ~/.ssh/id_rsa -N ""
     eval "$(ssh-agent -s)"
@@ -36,69 +36,39 @@ else
 fi
 
 # Alacritty
-echo "[2/10] Installing Alacritty configs..."
+echo "[2/9] Installing Alacritty configs..."
 copy_config_dir alacritty
 
 # Ghostty
-echo "[3/10] Installing Ghostty configs..."
+echo "[3/9] Installing Ghostty configs..."
 copy_config_dir ghostty
 
-echo "[4/10] Installing terminal tool configs..."
+echo "[4/9] Installing terminal tool configs..."
 for config in kitty wezterm starship btop cava fastfetch htop lazydocker lazygit pgcli yazi; do
     copy_config_dir "$config"
 done
 
 # Tmux
-echo "[5/10] Installing Tmux configs..."
+echo "[5/9] Installing Tmux configs..."
 cp "$DOTFILES_DIR/tmux/.tmux.conf" ~/
 
 # Zsh
-echo "[6/10] Installing Zsh configs..."
+echo "[6/9] Installing Zsh configs..."
 cp "$DOTFILES_DIR/zsh/.zshrc" ~/
 
 # Neovim
-echo "[7/10] Installing Neovim configs..."
+echo "[7/9] Installing Neovim configs..."
 copy_config_dir nvim
 
 # i3 window manager
-echo "[8/10] Installing i3 configs..."
+echo "[8/9] Installing i3 configs..."
 copy_config_dir i3
 
 # Touchpad settings need the system Xorg configuration directory.
-echo "[9/10] Installing touchpad preferences..."
+echo "[9/9] Installing touchpad preferences..."
 sudo install -Dm644 "$DOTFILES_DIR/xorg/90-touchpad-preferences.conf" \
     /etc/X11/xorg.conf.d/90-touchpad-preferences.conf
 
-# Clipboard Manager (GPaste)
-echo "[10/10] Installing clipboard manager (GPaste)..."
-sudo apt update -qq
-sudo apt install -y gpaste gnome-shell-extension-gpaste 2>/dev/null || true
-gnome-extensions enable gpaste@gnome-shell-extensions.gnome.org 2>/dev/null || true
-gsettings set org.gnome.GPaste max-history-size 50
-gsettings set org.gnome.GPaste track-changes true
-gsettings set org.gnome.GPaste trim-whitespace true
-dconf write /org/gnome/GPaste/show-ui "'<Super>v'"
-
-# GNOME keybindings
-echo ""
-echo "[+] Setting up GNOME keybindings..."
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name 'Alacritty'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command 'wmctrl -a Alacritty || alacritty'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding '<Alt>i'
-
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ name 'Brave Browser'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ command 'wmctrl -a Brave || brave-browser'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/ binding '<Alt>b'
-
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/ name 'Slack'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/ command 'wmctrl -a Slack || slack'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/ binding '<Alt>s'
-
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/ name 'Spotify'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/ command 'wmctrl -a Spotify || spotify'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/ binding '<Alt>x'
-
 echo ""
 echo "=== Done ==="
-echo "GPaste: Super+V to open clipboard history"
 echo "Restart your terminal or run: source ~/.zshrc"
