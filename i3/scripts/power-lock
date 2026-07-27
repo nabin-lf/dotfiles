@@ -1,3 +1,8 @@
 #!/bin/sh
 i3-msg mode default
+PATH="$HOME/.local/bin:$PATH"
+export PATH
+if command -v betterlockscreen >/dev/null 2>&1; then
+    exec betterlockscreen -l dimblur
+fi
 exec i3lock --nofork -c 1d2021
