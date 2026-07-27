@@ -45,10 +45,10 @@ bindsym $mod+Shift+e exec i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg ex
 
 set $mode_system System: (l)ock, (s)uspend, (r)eboot, (p)ower off, (Esc) cancel
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3lock -c 1d2021, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym p exec --no-startup-id systemctl poweroff, mode "default"
+    bindsym l exec --no-startup-id sh -c 'i3-msg mode default; i3lock -c 1d2021'
+    bindsym s exec --no-startup-id sh -c 'i3-msg mode default; systemctl suspend'
+    bindsym r exec --no-startup-id sh -c 'i3-msg mode default; systemctl reboot'
+    bindsym p exec --no-startup-id sh -c 'i3-msg mode default; systemctl poweroff'
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
