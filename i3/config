@@ -6,7 +6,7 @@ floating_modifier $mod
 
 # Responsive key repeat for Backspace and held Vim navigation keys.
 exec --no-startup-id xset r rate 250 40
-exec --no-startup-id feh --bg-fill '/home/leapfrog/Pictures/wallpapers/Catppuccin-pond-bridge.jpg'
+exec --no-startup-id feh --bg-fill "$HOME/Pictures/wallpapers/Catppuccin-pond-bridge.jpg"
 
 # Airy, but still compact on a laptop screen.
 gaps inner 8
@@ -31,7 +31,7 @@ bindsym $mod+c exec --no-startup-id copyq --start-server show
 bindsym $mod+Shift+v exec --no-startup-id copyq --start-server show
 bindsym $mod+n exec --no-startup-id nm-connection-editor
 bindsym $mod+Shift+b exec --no-startup-id blueman-manager
-bindsym $mod+Escape exec --no-startup-id /home/leapfrog/.config/i3/scripts/power-lock
+bindsym $mod+Escape exec --no-startup-id "$HOME/.config/i3/scripts/power-lock"
 
 # Screenshots: Print selects an area; Super+Print captures the full screen.
 bindsym Print exec --no-startup-id flameshot gui
@@ -45,10 +45,10 @@ bindsym $mod+Shift+e exec i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg ex
 
 set $mode_system System: (l)ock, (s)uspend, (r)eboot, (p)ower off, (Esc) cancel
 mode "$mode_system" {
-    bindsym l exec --no-startup-id /home/leapfrog/.config/i3/scripts/power-lock
-    bindsym s exec --no-startup-id /home/leapfrog/.config/i3/scripts/power-suspend
-    bindsym r exec --no-startup-id /home/leapfrog/.config/i3/scripts/power-reboot
-    bindsym p exec --no-startup-id /home/leapfrog/.config/i3/scripts/poweroff
+    bindsym l exec --no-startup-id "$HOME/.config/i3/scripts/power-lock"
+    bindsym s exec --no-startup-id "$HOME/.config/i3/scripts/power-suspend"
+    bindsym r exec --no-startup-id "$HOME/.config/i3/scripts/power-reboot"
+    bindsym p exec --no-startup-id "$HOME/.config/i3/scripts/poweroff"
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
