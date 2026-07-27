@@ -136,6 +136,8 @@ For Bluetooth, press `Super+Shift+b` for Blueman. From a terminal, use `bluetoot
 
 This setup uses **JetBrainsMono Nerd Font** (v3.4.0) and a Catppuccin Mocha purple i3 palette. Install the font from [Nerd Fonts](https://www.nerdfonts.com/font-downloads) if missing:
 
+The i3 background uses `Pictures/wallpapers/Catppuccin-pond-bridge.jpg` through lightweight `feh`; empty workspaces no longer show a black root background. Text-file MIME defaults and `$EDITOR`/`$VISUAL` point to Neovim. Yazi is not installed or configured by the installer.
+
 ```bash
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts

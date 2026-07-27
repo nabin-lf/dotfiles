@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Neovim
+Comment=Edit text files in Neovim
+Exec=env WINIT_X11_SCALE_FACTOR=1 alacritty --class=Neovim --title=Neovim -e nvim %F
+Terminal=false
+Type=Application
+Icon=nvim
+Categories=Utility;TextEditor;
+MimeType=text/plain;text/x-python;text/x-csrc;text/x-c++src;text/x-shellscript;
+StartupNotify=false

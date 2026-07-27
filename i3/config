@@ -6,6 +6,7 @@ floating_modifier $mod
 
 # Responsive key repeat for Backspace and held Vim navigation keys.
 exec --no-startup-id xset r rate 250 40
+exec --no-startup-id feh --bg-fill '/home/leapfrog/Pictures/wallpapers/Catppuccin-pond-bridge.jpg'
 
 # Airy, but still compact on a laptop screen.
 gaps inner 8

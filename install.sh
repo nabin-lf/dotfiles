@@ -44,7 +44,7 @@ echo "[3/9] Installing Ghostty configs..."
 copy_config_dir ghostty
 
 echo "[4/9] Installing terminal tool configs..."
-for config in kitty wezterm starship btop cava fastfetch htop lazydocker lazygit pgcli yazi; do
+for config in kitty wezterm starship btop cava fastfetch htop lazydocker lazygit pgcli; do
     copy_config_dir "$config"
 done
 
@@ -63,6 +63,12 @@ copy_config_dir nvim
 # i3 window manager
 echo "[8/9] Installing i3 configs..."
 copy_config_dir i3
+
+# Neovim application and file associations
+echo "Installing Neovim desktop defaults..."
+mkdir -p "$HOME/.local/share/applications"
+cp "$DOTFILES_DIR/applications/Neovim.desktop" "$HOME/.local/share/applications/Neovim.desktop"
+cp "$DOTFILES_DIR/mimeapps.list" "$HOME/.config/mimeapps.list"
 
 # Touchpad settings need the system Xorg configuration directory.
 echo "[9/9] Installing touchpad preferences..."
