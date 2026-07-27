@@ -15,8 +15,8 @@ client.focused_inactive #3c3836 #3c3836 #928374 #3c3836 #3c3836
 client.unfocused        #1d2021 #1d2021 #928374 #1d2021 #1d2021
 
 # Daily apps (Alt based, like an AeroSpace setup)
-bindsym Mod1+i exec --no-startup-id alacritty, mode "default"
-bindsym Mod1+Return exec --no-startup-id alacritty
+bindsym Mod1+i exec --no-startup-id env WINIT_X11_SCALE_FACTOR=1 alacritty
+bindsym Mod1+Return exec --no-startup-id env WINIT_X11_SCALE_FACTOR=1 alacritty
 bindsym Mod1+b exec --no-startup-id brave-browser
 bindsym Mod1+s exec --no-startup-id slack
 bindsym Mod1+x exec --no-startup-id spotify
@@ -24,6 +24,7 @@ bindsym Mod1+x exec --no-startup-id spotify
 # App search and system essentials
 bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+n exec --no-startup-id nm-connection-editor
+bindsym $mod+Shift+b exec --no-startup-id blueman-manager
 bindsym $mod+Escape exec --no-startup-id i3lock -c 1d2021
 
 # Screenshots: Print selects an area; Super+Print captures the full screen.
@@ -123,5 +124,6 @@ bar {
 }
 
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
 exec --no-startup-id picom

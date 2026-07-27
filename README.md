@@ -66,12 +66,17 @@ cp zsh/.zshrc ~/
 | `Print` | Area screenshot, copied to clipboard |
 | `Super+Print` | Full-screen screenshot, copied to clipboard |
 | `Super+n` | Network settings GUI |
+| `Super+Shift+b` | Bluetooth settings GUI |
 | `Super+Esc` | Lock screen |
 | `Super+Shift+p` | Power mode: `l` lock, `s` suspend, `r` reboot, `p` power off |
 
 ## Touchpad
 
 Tap anywhere on the touchpad for a normal left click. Two-finger taps are right clicks. The setting is installed system-wide in `/etc/X11/xorg.conf.d/` and also takes effect after your next login.
+
+For Wi-Fi, press `Super+n` for the graphical NetworkManager window. From a terminal, use `nmcli device wifi list`, then `nmcli device wifi connect "NETWORK_NAME" --ask`.
+
+For Bluetooth, press `Super+Shift+b` for Blueman. From a terminal, use `bluetoothctl`, then `power on`, `agent on`, `default-agent`, `scan on`, `pair MAC`, `trust MAC`, and `connect MAC`.
 
 ## Fonts
 
