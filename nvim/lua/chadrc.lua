@@ -9,6 +9,13 @@ M.base46 = {
   theme = "tokyonight",
   transparency = true,
 
+  -- Match the blue NORMAL-mode accent across the dashboard.
+  hl_override = {
+    AlphaHeader = { fg = "#89b4fa" },
+    AlphaButtons = { fg = "#cdd6f4" },
+    AlphaFooter = { fg = "#89b4fa" },
+  },
+
   -- hl_override = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
