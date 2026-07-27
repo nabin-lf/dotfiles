@@ -68,6 +68,7 @@ copy_config_dir nvim
 # i3 window manager
 echo "[8/9] Installing i3 configs..."
 copy_config_dir i3
+chmod +x "$HOME/.config/i3/scripts/"power-* 2>/dev/null || true
 
 # Neovim application and file associations
 echo "Installing Neovim desktop defaults..."

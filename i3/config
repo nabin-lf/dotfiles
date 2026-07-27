@@ -45,10 +45,10 @@ bindsym $mod+Shift+e exec i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg ex
 
 set $mode_system System: (l)ock, (s)uspend, (r)eboot, (p)ower off, (Esc) cancel
 mode "$mode_system" {
-    bindsym l exec --no-startup-id sh -c 'i3-msg mode default; i3lock -c 1d2021'
-    bindsym s exec --no-startup-id sh -c 'i3-msg mode default; systemctl suspend'
-    bindsym r exec --no-startup-id sh -c 'i3-msg mode default; systemctl reboot'
-    bindsym p exec --no-startup-id sh -c 'i3-msg mode default; systemctl poweroff'
+    bindsym l exec --no-startup-id /home/leapfrog/.config/i3/scripts/power-lock
+    bindsym s exec --no-startup-id /home/leapfrog/.config/i3/scripts/power-suspend
+    bindsym r exec --no-startup-id /home/leapfrog/.config/i3/scripts/power-reboot
+    bindsym p exec --no-startup-id /home/leapfrog/.config/i3/scripts/poweroff
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
