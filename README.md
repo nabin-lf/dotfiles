@@ -74,6 +74,8 @@ cp zsh/.zshrc ~/
 
 `Super` is the Windows/Meta key.
 
+Keyboard repeat is tuned to 250ms before repeat and 40 repeats/second, so holding Backspace or `h/j/k/l` responds quickly.
+
 | Key | Action |
 |-----|--------|
 | `Super+w` | Close the focused application |
