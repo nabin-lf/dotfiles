@@ -8,6 +8,7 @@ Personal config files for Ubuntu + GNOME/i3 setup.
 |-----------|-------------------|
 | `alacritty/` | Alacritty terminal (font, theme, padding) |
 | `i3/` | i3 window manager (gaps, shortcuts, bar, screenshots, network and power) |
+| `xorg/` | Touchpad preferences (tap-to-click and scrolling direction) |
 | `ghostty/` | Ghostty terminal |
 | `nvim/` | Neovim (NvChad + plugins) |
 | `tmux/` | tmux (prefix, status bar, plugins) |
@@ -28,6 +29,7 @@ This will:
 
 1. Set up SSH key (if not already configured)
 2. Copy Alacritty, i3, Ghostty, tmux, zsh, and Neovim configs to the correct locations
+3. Enable tap-to-click and the configured touchpad scrolling direction
 3. Install GPaste clipboard manager
 4. Set up GNOME keybindings for app launchers
 
@@ -66,6 +68,10 @@ cp zsh/.zshrc ~/
 | `Super+n` | Network settings GUI |
 | `Super+Esc` | Lock screen |
 | `Super+Shift+p` | Power mode: `l` lock, `s` suspend, `r` reboot, `p` power off |
+
+## Touchpad
+
+Tap anywhere on the touchpad for a normal left click. Two-finger taps are right clicks. The setting is installed system-wide in `/etc/X11/xorg.conf.d/` and also takes effect after your next login.
 
 ## Fonts
 
