@@ -62,6 +62,8 @@ cp zsh/.zshrc ~/
 | `Alt+s` | Open Slack |
 | `Alt+x` | Open Spotify |
 | `Super+Space` | Search and launch applications |
+| `Super+c` | Open clipboard history (CopyQ) |
+| `Super+Shift+v` | Open clipboard history (CopyQ) |
 | `Print` | Area screenshot, copied to clipboard |
 | `Super+Print` | Full-screen screenshot, copied to clipboard |
 | `Super+n` | Network settings GUI |
@@ -137,6 +139,8 @@ For Bluetooth, press `Super+Shift+b` for Blueman. From a terminal, use `bluetoot
 This setup uses **JetBrainsMono Nerd Font** (v3.4.0) and a Catppuccin Mocha purple i3 palette. Install the font from [Nerd Fonts](https://www.nerdfonts.com/font-downloads) if missing:
 
 The i3 background uses `Pictures/wallpapers/Catppuccin-pond-bridge.jpg` through lightweight `feh`; empty workspaces no longer show a black root background. Text-file MIME defaults and `$EDITOR`/`$VISUAL` point to Neovim. Yazi is not installed or configured by the installer.
+
+CopyQ provides system clipboard history. `xclip`/`xsel` still provide the basic X11 clipboard, while CopyQ keeps previous copied items available from the shortcuts above. `Super+v` remains reserved for i3 left/right splitting.
 
 ```bash
 mkdir -p ~/.local/share/fonts

@@ -27,6 +27,8 @@ bindsym Mod1+x exec --no-startup-id spotify
 
 # App search and system essentials
 bindsym $mod+space exec --no-startup-id rofi -show drun
+bindsym $mod+c exec --no-startup-id copyq --start-server show
+bindsym $mod+Shift+v exec --no-startup-id copyq --start-server show
 bindsym $mod+n exec --no-startup-id nm-connection-editor
 bindsym $mod+Shift+b exec --no-startup-id blueman-manager
 bindsym $mod+Escape exec --no-startup-id i3lock -c 1d2021
@@ -132,3 +134,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
 exec --no-startup-id picom
+exec --no-startup-id copyq --start-server

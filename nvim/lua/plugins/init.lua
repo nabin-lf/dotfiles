@@ -402,6 +402,11 @@ return {
       dashboard.section.buttons.opts.hl = "AlphaButtons"
       dashboard.section.footer.opts.hl = "AlphaFooter"
 
+      -- Define these groups explicitly; base46 does not create custom Alpha groups.
+      vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#89b4fa" })
+      vim.api.nvim_set_hl(0, "AlphaButtons", { fg = "#cdd6f4" })
+      vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#89b4fa" })
+
       alpha.setup(dashboard.opts)
 
       -- Disable banner on non-dashboard buffers
