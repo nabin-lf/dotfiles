@@ -70,6 +70,59 @@ cp zsh/.zshrc ~/
 | `Super+Esc` | Lock screen |
 | `Super+Shift+p` | Power mode: `l` lock, `s` suspend, `r` reboot, `p` power off |
 
+### i3 quick reference
+
+`Super` is the Windows/Meta key.
+
+| Key | Action |
+|-----|--------|
+| `Super+w` | Close the focused application |
+| `Super+Shift+q` | Also close the focused application |
+| `Super+h/j/k/l` | Focus left/down/up/right |
+| `Super+Shift+h/j/k/l` | Move the focused window |
+| `Super+v` | Split left/right; the next window opens beside it |
+| `Super+d` | Split top/bottom; the next window opens below it |
+| `Super+f` | Toggle fullscreen |
+| `Super+1…9` | Switch workspace |
+| `Super+Shift+1…9` | Move the focused window to a workspace |
+| `Super+r`, then `h/j/k/l` | Resize a window; `Esc` exits resize mode |
+| `Super+t` | Tabbed layout |
+| `Super+Shift+c` | Reload i3 after editing config |
+| `Super+Shift+r` | Restart i3 |
+
+To arrange Gmail on the left with terminals stacked on the right: focus the right terminal, press `Super+d`, then focus the middle terminal and press `Super+Shift+l`.
+
+### Wi‑Fi and Bluetooth
+
+Wi‑Fi GUI: press `Super+n`. Select a network and enter its password.
+
+Wi‑Fi terminal:
+
+```bash
+nmcli device wifi list
+nmcli device wifi connect "NETWORK_NAME" --ask
+nmcli connection show
+nmcli connection down "CONNECTION_NAME"
+nmcli connection up "CONNECTION_NAME"
+```
+
+Bluetooth GUI: press `Super+Shift+b`, choose a device, pair it, trust it, and connect it.
+
+Bluetooth terminal:
+
+```text
+bluetoothctl
+power on
+agent on
+default-agent
+scan on
+pair AA:BB:CC:DD:EE:FF
+trust AA:BB:CC:DD:EE:FF
+connect AA:BB:CC:DD:EE:FF
+```
+
+Replace the example MAC address with the device address shown by `scan on`. Type `quit` to leave `bluetoothctl`.
+
 ## Touchpad
 
 Tap anywhere on the touchpad for a normal left click. Two-finger taps are right clicks. The setting is installed system-wide in `/etc/X11/xorg.conf.d/` and also takes effect after your next login.

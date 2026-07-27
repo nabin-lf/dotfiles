@@ -52,7 +52,8 @@ bindsym $mod+Shift+p mode "$mode_system"
 bindsym $mod+v split h
 bindsym $mod+d split v
 bindsym $mod+e layout toggle split
-bindsym $mod+w layout tabbed
+bindsym $mod+w kill
+bindsym $mod+t layout tabbed
 bindsym $mod+f fullscreen toggle
 
 # Focus movement
