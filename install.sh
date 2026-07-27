@@ -1,6 +1,4 @@
-# Neovim
-echo "[7/8] Installing Neovim configs..."
-copy_config_dir nvim#!/bin/bash
+#!/bin/bash
 
 set -e
 copy_config_dir() {
@@ -16,7 +14,7 @@ echo "=== Dotfiles Installer ==="
 echo ""
 
 # SSH Key
-echo "[1/8] Setting up SSH key..."
+echo "[1/9] Setting up SSH key..."
 if [ ! -f ~/.ssh/id_rsa ]; then
     ssh-keygen -t rsa -b 4096 -C "nabin-lf" -f ~/.ssh/id_rsa -N ""
     eval "$(ssh-agent -s)"
@@ -38,32 +36,36 @@ else
 fi
 
 # Alacritty
-echo "[2/8] Installing Alacritty configs..."
+echo "[2/9] Installing Alacritty configs..."
 copy_config_dir alacritty
 
 # Ghostty
-echo "[3/8] Installing Ghostty configs..."
+echo "[3/9] Installing Ghostty configs..."
 copy_config_dir ghostty
 
-echo "[4/8] Installing terminal tool configs..."
+echo "[4/9] Installing terminal tool configs..."
 for config in kitty wezterm starship btop cava fastfetch htop lazydocker lazygit pgcli yazi; do
     copy_config_dir "$config"
 done
 
 # Tmux
-echo "[5/8] Installing Tmux configs..."
+echo "[5/9] Installing Tmux configs..."
 cp "$DOTFILES_DIR/tmux/.tmux.conf" ~/
 
 # Zsh
-echo "[6/8] Installing Zsh configs..."
+echo "[6/9] Installing Zsh configs..."
 cp "$DOTFILES_DIR/zsh/.zshrc" ~/
 
 # Neovim
-echo "[7/8] Installing Neovim configs..."
+echo "[7/9] Installing Neovim configs..."
 copy_config_dir nvim
 
+# i3 window manager
+echo "[8/9] Installing i3 configs..."
+copy_config_dir i3
+
 # Clipboard Manager (GPaste)
-echo "[8/8] Installing clipboard manager (GPaste)..."
+echo "[9/9] Installing clipboard manager (GPaste)..."
 sudo apt update -qq
 sudo apt install -y gpaste gnome-shell-extension-gpaste 2>/dev/null || true
 gnome-extensions enable gpaste@gnome-shell-extensions.gnome.org 2>/dev/null || true

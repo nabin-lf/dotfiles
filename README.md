@@ -7,6 +7,7 @@ Personal config files for Ubuntu + GNOME/i3 setup.
 | Directory | What it configures |
 |-----------|-------------------|
 | `alacritty/` | Alacritty terminal (font, theme, padding) |
+| `i3/` | i3 window manager (gaps, shortcuts, bar, screenshots, network and power) |
 | `ghostty/` | Ghostty terminal |
 | `nvim/` | Neovim (NvChad + plugins) |
 | `tmux/` | tmux (prefix, status bar, plugins) |
@@ -26,7 +27,7 @@ chmod +x install.sh
 This will:
 
 1. Set up SSH key (if not already configured)
-2. Copy Alacritty, Ghostty, tmux, zsh, and Neovim configs to the correct locations
+2. Copy Alacritty, i3, Ghostty, tmux, zsh, and Neovim configs to the correct locations
 3. Install GPaste clipboard manager
 4. Set up GNOME keybindings for app launchers
 
@@ -37,6 +38,9 @@ Copy individual configs as needed:
 ```bash
 # Alacritty
 cp alacritty/*.toml ~/.config/alacritty/
+
+# i3
+cp -r i3 ~/.config/
 
 # Neovim
 cp -r nvim/* ~/.config/nvim/
@@ -56,6 +60,12 @@ cp zsh/.zshrc ~/
 | `Alt+b` | Open Brave |
 | `Alt+s` | Open Slack |
 | `Alt+x` | Open Spotify |
+| `Super+Space` | Search and launch applications |
+| `Print` | Area screenshot, copied to clipboard |
+| `Super+Print` | Full-screen screenshot, copied to clipboard |
+| `Super+n` | Network settings GUI |
+| `Super+Esc` | Lock screen |
+| `Super+Shift+p` | Power mode: `l` lock, `s` suspend, `r` reboot, `p` power off |
 
 ## Fonts
 
