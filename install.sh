@@ -70,6 +70,11 @@ echo "[8/9] Installing i3 configs..."
 copy_config_dir i3
 chmod +x "$HOME/.config/i3/scripts/"power-* 2>/dev/null || true
 
+# Install the shared wallpaper used by i3 and Betterlockscreen.
+mkdir -p "$HOME/Pictures/wallpapers"
+cp "$DOTFILES_DIR/wallpapers/Catppuccin-pond-bridge.jpg" \
+   "$HOME/Pictures/wallpapers/Catppuccin-pond-bridge.jpg"
+
 # Neovim application and file associations
 echo "Installing Neovim desktop defaults..."
 mkdir -p "$HOME/.local/share/applications"

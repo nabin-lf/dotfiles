@@ -8,6 +8,7 @@ Personal config files for Ubuntu + GNOME/i3 setup.
 |-----------|-------------------|
 | `alacritty/` | Alacritty terminal (font, theme, padding) |
 | `i3/` | i3 window manager (gaps, shortcuts, bar, screenshots, network and power) |
+| `wallpapers/` | Catppuccin wallpaper used by i3 and Betterlockscreen |
 | `xorg/` | Touchpad preferences (tap-to-click and scrolling direction) |
 | `ghostty/` | Ghostty terminal |
 | `nvim/` | Neovim (NvChad + plugins) |
@@ -30,7 +31,8 @@ This will:
 1. Set up SSH key (if not already configured)
 2. Copy Alacritty, i3, Ghostty, tmux, zsh, and Neovim configs to the correct locations
 3. Enable tap-to-click and the configured touchpad scrolling direction
-3. Install the i3 touchpad preference and native i3 startup services
+4. Install the i3 touchpad preference and native i3 startup services
+5. Copy the included wallpaper to `~/Pictures/wallpapers/`
 
 ## Manual install (without script)
 
@@ -138,7 +140,7 @@ For Bluetooth, press `Super+Shift+b` for Blueman. From a terminal, use `bluetoot
 
 This setup uses **JetBrainsMono Nerd Font** (v3.4.0) and a Catppuccin Mocha purple i3 palette. Install the font from [Nerd Fonts](https://www.nerdfonts.com/font-downloads) if missing:
 
-The i3 background uses `Pictures/wallpapers/Catppuccin-pond-bridge.jpg` through lightweight `feh`; empty workspaces no longer show a black root background. Text-file MIME defaults and `$EDITOR`/`$VISUAL` point to Neovim. Yazi is not installed or configured by the installer.
+The i3 background uses `Pictures/wallpapers/Catppuccin-pond-bridge.jpg` through lightweight `feh`; the same image can be cached for Betterlockscreen. Empty workspaces no longer show a black root background. Text-file MIME defaults and `$EDITOR`/`$VISUAL` point to Neovim. Yazi is not installed or configured by the installer.
 
 CopyQ provides system clipboard history. `xclip`/`xsel` still provide the basic X11 clipboard, while CopyQ keeps previous copied items available from the shortcuts above. `Super+v` remains reserved for i3 left/right splitting.
 
