@@ -35,6 +35,11 @@ else
     echo "SSH key already exists"
 fi
 
+# Use the GitHub key directly; do not import it into gpg-agent/pinentry.
+mkdir -p "$HOME/.ssh"
+cp "$DOTFILES_DIR/ssh/config" "$HOME/.ssh/config"
+chmod 600 "$HOME/.ssh/config"
+
 # Alacritty
 echo "[2/9] Installing Alacritty configs..."
 copy_config_dir alacritty
