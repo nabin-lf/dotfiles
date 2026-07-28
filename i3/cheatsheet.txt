@@ -1,0 +1,64 @@
+I3 QUICK CHEATSHEET
+===================
+
+WINDOWS
+Super+1..9          Switch workspace
+Super+Shift+1..9    Move window to workspace
+Super+h/j/k/l       Focus left/down/up/right
+Super+Shift+h/j/k/l Move window left/down/up/right
+Super+v             Split left/right
+Super+d             Split top/bottom
+Super+f             Toggle i3 fullscreen
+F11                 Toggle browser/Alacritty fullscreen
+Super+Shift+q       Close focused window
+Super+F1            Show this cheatsheet
+
+APPS
+Alt+i / Alt+Enter   Alacritty + tmux in ~/Documents/work
+Alt+b               Brave
+Alt+s               Slack
+Alt+x               Spotify
+Super+Space         Application launcher
+
+CLIPBOARD / SCREENSHOTS
+Super+c             Clipboard history (CopyQ)
+Super+Shift+v       Clipboard history (CopyQ)
+Print               Select area screenshot (clipboard)
+Super+Print         Full screenshot (clipboard)
+
+LOCK / POWER
+Super+Esc           Lock screen
+Super+Shift+p, l    Lock
+Super+Shift+p, s    Suspend
+Super+Shift+p, r    Reboot
+Super+Shift+p, p    Power off
+Esc                 Cancel a power mode
+
+NETWORK
+Super+n             Wi-Fi GUI
+Super+Shift+b       Bluetooth GUI
+Wi-Fi terminal:     nmcli device wifi list
+Connect Wi-Fi:      nmcli device wifi connect "NETWORK" --ask
+Bluetooth terminal: bluetoothctl
+  power on; agent on; default-agent; scan on
+  pair MAC; trust MAC; connect MAC
+
+TOUCHPAD
+Tap                 Left click
+Two-finger tap      Right click
+Two-finger swipe    Scroll
+
+MEDIA / BRIGHTNESS
+Fn volume keys      Volume up/down/mute
+Fn media keys       Play/pause, previous, next
+Fn brightness keys  Brightness up/down
+
+TMUX (prefix is Ctrl-a)
+Ctrl-a s            Choose/switch session
+Ctrl-a c            New window
+Ctrl-a 1..9         Select window
+Ctrl-a d            Detach
+tmux ls             List sessions
+
+If a mode feels stuck, press Esc or run:
+  i3-msg mode default
