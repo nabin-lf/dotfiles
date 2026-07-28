@@ -19,8 +19,8 @@ client.focused_inactive #313244 #313244 #a6adc8 #313244 #313244
 client.unfocused        #181825 #181825 #6c7086 #181825 #181825
 
 # Daily apps (Alt based, like an AeroSpace setup)
-bindsym Mod1+i exec --no-startup-id env WINIT_X11_SCALE_FACTOR=1 alacritty
-bindsym Mod1+Return exec --no-startup-id env WINIT_X11_SCALE_FACTOR=1 alacritty
+bindsym Mod1+i exec --no-startup-id env WINIT_X11_SCALE_FACTOR=1 alacritty --working-directory "$HOME/Documents/work"
+bindsym Mod1+Return exec --no-startup-id env WINIT_X11_SCALE_FACTOR=1 alacritty --working-directory "$HOME/Documents/work"
 bindsym Mod1+b exec --no-startup-id brave-browser
 bindsym Mod1+s exec --no-startup-id slack
 bindsym Mod1+x exec --no-startup-id spotify
