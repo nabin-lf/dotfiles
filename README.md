@@ -73,6 +73,8 @@ cp zsh/.zshrc ~/
 | `Super+Esc` | Lock screen |
 | `Super+Shift+p` | Power mode: `l` lock, `s` suspend, `r` reboot, `p` power off |
 
+The laptop Fn media keys control volume, mute, playback, and brightness directly. Hold `Fn` if your keyboard requires it.
+
 ### i3 quick reference
 
 `Super` is the Windows/Meta key.
